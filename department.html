@@ -33,15 +33,15 @@
       <label for="deptSelect">Select a Department:</label>
       <select id="deptSelect" name="department" onchange="showHOD()" required>
         <option value="">-- Choose a Department --</option>
-        <option value="Mass Communication|Dr. Iniobong Courage Nda">Mass Communication</option>
-        <option value="Information and Media Studies|Herbert E. Batta">Information and Media Studies</option>
-        <option value="Advertising and Marketing Communication|Prof. Aniebo C. Samson">Advertising and Marketing Communication</option>
-        <option value="Journalism|Dr. Nsikak S. Idiong">Journalism</option>
-        <option value="Public Relations|Dr. Uduot A. Iwok">Public Relations</option>
-        <option value="Strategic and Corporate Communication|Prof. Nsikan Senam">Strategic and Corporate Communication</option>
-        <option value="Development Communication|Prof. Ashong Ashong">Development Communication</option>
-        <option value="Broadcasting|Prof. Uwem Udo Akpan">Broadcasting</option>
-        <option value="Film and Multimedia Studies|Prof. Charles Obot">Film and Multimedia Studies</option>
+        <option value="Mass Communication|Dr. Iniobong Courage Nda|">Mass Communication</option>
+        <option value="Information and Media Studies|Herbert E. Batta|Nigerian People and Culture, History of the Nigerian Mass Media, Basic Computer Tools and Programme Packages, Computer Aided Design in Media Production, Web-based Techniques and Multimedia, Information Technology and Media Sociology, Government and Politics in the Information Age, Fundamentals of Information and Media Finance">Information and Media Studies</option>
+        <option value="Advertising and Marketing Communication|Prof. Aniebo C. Samson|">Advertising and Marketing Communication</option>
+        <option value="Journalism|Dr. Nsikak S. Idiong|">Journalism</option>
+        <option value="Public Relations|Dr. Uduot A. Iwok|">Public Relations</option>
+        <option value="Strategic and Corporate Communication|Prof. Nsikan Senam|">Strategic and Corporate Communication</option>
+        <option value="Development Communication|Prof. Ashong Ashong|">Development Communication</option>
+        <option value="Broadcasting|Prof. Uwem Udo Akpan|">Broadcasting</option>
+        <option value="Film and Multimedia Studies|Prof. Charles Obot|">Film and Multimedia Studies</option>
       </select>
 
       <div id="deptResult"></div>
@@ -72,7 +72,20 @@
     }
 
     var parts = value.split("|");
-    result.textContent = "Head of Department (" + parts[0] + "): " + parts[1];
+    var html = "<p>Head of Department (" + parts[0] + "): " + parts[1] + "</p>";
+
+    if (parts[2]) {
+      var courses = parts[2].split(", ");
+      html += "<p style=\"margin-top:10px;\">Courses Offered:</p><ul>";
+      for (var i = 0; i < courses.length; i++) {
+        html += "<li>" + courses[i] + "</li>";
+      }
+      html += "</ul>";
+    } else {
+      html += "<p style=\"margin-top:10px;\">Course list not yet available for this department.</p>";
+    }
+
+    result.innerHTML = html;
     result.style.display = "block";
   }
 
@@ -83,6 +96,7 @@
       type: "department",
       department: parts[0],
       hod: parts[1],
+      courses: parts[2] ? parts[2].split(", ") : [],
       submittedAt: new Date().toISOString()
     };
     downloadSubmission(data, "department").then(function () {
