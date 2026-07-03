@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gender - Faculty of Communication and Media Studies</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="images/uniuyo-logo.png" alt="University of Uyo logo">
+  <div class="header-text">
+    <h1>Faculty of Communication and Media Studies</h1>
+    <p>University of Uyo &mdash; "Communicate or Perish"</p>
+  </div>
+  <img src="images/ims-logo.jpg" alt="Information and Media Studies department logo">
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="department.html">Department</a>
+  <a href="gender.html">Gender</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+
+  <h2>Gender</h2>
+
+  <section>
+    <form id="genderForm">
+      <label for="genderSelect">Select Gender:</label>
+      <select id="genderSelect" name="gender" onchange="showGender()" required>
+        <option value="">-- Choose Gender --</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
+      <div id="genderResult"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p id="saveNote" style="display:none; margin-top:15px; color:#7a0d13; font-weight:bold;">
+      Saved!
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Faculty of Communication and Media Studies, University of Uyo</p>
+</footer>
+
+<script src="submissions.js"></script>
+<script>
+  function showGender() {
+    var select = document.getElementById("genderSelect");
+    var result = document.getElementById("genderResult");
+    var value = select.value;
+
+    if (value === "") {
+      result.style.display = "none";
+      return;
+    }
+
+    result.textContent = "You selected: " + value;
+    result.style.display = "block";
+  }
+
+  document.getElementById("genderForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var data = {
+      type: "gender",
+      gender: document.getElementById("genderSelect").value,
+      submittedAt: new Date().toISOString()
+    };
+    downloadSubmission(data, "gender").then(function () {
+      document.getElementById("saveNote").style.display = "block";
+    });
+  });
+</script>
+
+</body>
+</html>

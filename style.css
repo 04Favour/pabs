@@ -1,0 +1,201 @@
+/* Faculty of Communication and Media Studies - Site Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #c1121f;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+header img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+header .header-text h1 {
+  font-size: 1.8rem;
+}
+
+header .header-text p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+nav {
+  background-color: #7a0d13;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #c1121f;
+}
+
+main {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #7a0d13;
+  border-bottom: 3px solid #c1121f;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.hero-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.hero-images figure {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  max-width: 450px;
+}
+
+.hero-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.hero-images figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+table caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #7a0d13;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #7a0d13;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f2f2;
+}
+
+.homepage-links {
+  margin: 20px 0;
+  padding: 15px;
+  background: #fff;
+  border-left: 4px solid #c1121f;
+}
+
+.homepage-links a {
+  color: #7a0d13;
+  font-weight: bold;
+}
+
+section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #c1121f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #7a0d13;
+}
+
+#deptResult, #genderResult {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #f9f2f2;
+  border-left: 4px solid #c1121f;
+  font-weight: bold;
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #7a0d13;
+  color: #fff;
+  margin-top: 40px;
+}

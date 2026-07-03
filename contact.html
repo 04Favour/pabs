@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact - Faculty of Communication and Media Studies</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="images/uniuyo-logo.png" alt="University of Uyo logo">
+  <div class="header-text">
+    <h1>Faculty of Communication and Media Studies</h1>
+    <p>University of Uyo &mdash; "Communicate or Perish"</p>
+  </div>
+  <img src="images/ims-logo.jpg" alt="Information and Media Studies department logo">
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="department.html">Department</a>
+  <a href="gender.html">Gender</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+
+  <h2>Contact Form</h2>
+
+  <section>
+    <form id="contactForm">
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="regnumber">Registration Number:</label>
+      <input type="text" id="regnumber" name="regnumber" required>
+
+      <label for="faculty">Faculty:</label>
+      <input type="text" id="faculty" name="faculty" value="Communication and Media Studies" readonly>
+
+      <label for="department">Department:</label>
+      <select id="department" name="department" required>
+        <option value="">-- Select Department --</option>
+        <option value="Mass Communication">Mass Communication</option>
+        <option value="Information and Media Studies">Information and Media Studies</option>
+        <option value="Advertising and Marketing Communication">Advertising and Marketing Communication</option>
+        <option value="Journalism">Journalism</option>
+        <option value="Public Relations">Public Relations</option>
+        <option value="Strategic and Corporate Communication">Strategic and Corporate Communication</option>
+        <option value="Development Communication">Development Communication</option>
+        <option value="Broadcasting">Broadcasting</option>
+        <option value="Film and Multimedia Studies">Film and Multimedia Studies</option>
+      </select>
+
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="">-- Select Course --</option>
+        <option value="Nigerian People and Culture">Nigerian People and Culture</option>
+        <option value="History of the Nigerian Mass Media">History of the Nigerian Mass Media</option>
+        <option value="Basic Computer Tools and Programme Packages">Basic Computer Tools and Programme Packages</option>
+        <option value="Computer Aided Design in Media Production">Computer Aided Design in Media Production</option>
+        <option value="Web-based Techniques and Multimedia">Web-based Techniques and Multimedia</option>
+        <option value="Information Technology and Media Sociology">Information Technology and Media Sociology</option>
+        <option value="Government and Politics in the Information Age">Government and Politics in the Information Age</option>
+        <option value="Fundamentals of Information and Media Finance">Fundamentals of Information and Media Finance</option>
+      </select>
+
+      <button type="submit">Submit</button>
+
+    </form>
+    <p id="saveNote" style="display:none; margin-top:15px; color:#7a0d13; font-weight:bold;">
+      Saved!
+    </p>
+  </section>
+
+</main>
+
+<script src="submissions.js"></script>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var data = {
+      type: "contact",
+      name: document.getElementById("name").value,
+      regnumber: document.getElementById("regnumber").value,
+      faculty: document.getElementById("faculty").value,
+      department: document.getElementById("department").value,
+      course: document.getElementById("course").value,
+      submittedAt: new Date().toISOString()
+    };
+    downloadSubmission(data, "contact").then(function () {
+      document.getElementById("saveNote").style.display = "block";
+      e.target.reset();
+      document.getElementById("faculty").value = "Communication and Media Studies";
+    });
+  });
+</script>
+
+<footer>
+  <p>&copy; 2026 Faculty of Communication and Media Studies, University of Uyo</p>
+</footer>
+
+</body>
+</html>
